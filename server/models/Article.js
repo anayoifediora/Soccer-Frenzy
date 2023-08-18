@@ -29,7 +29,6 @@ const articleSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-        get: (date) => dateFormat(date),
     },
     comments: [
         {

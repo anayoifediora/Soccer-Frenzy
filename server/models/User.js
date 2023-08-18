@@ -26,6 +26,12 @@ const userSchema = new Schema({
             ref: 'Article',
         },
     ],
+    comments : [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Comment',
+        },
+    ],
     followers: [
         {
             type: Schema.Types.ObjectId,
