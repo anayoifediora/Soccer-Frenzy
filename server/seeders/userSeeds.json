@@ -1,0 +1,33 @@
+[
+    {
+      "username": "Paul George",
+      "email": "paulgeorge@nba.com",
+      "password": "password01"
+    },
+    {
+      "username": "Devin Booker",
+      "email": "devinbooker@nba.com",
+      "password": "password02"
+    },
+    {
+      "username": "Lebron James",
+      "email": "lebronjames@nba.com",
+      "password": "password03"
+    },
+    {
+      "username": "Kevin Durant",
+      "email": "kevindurant@nba.com",
+      "password": "password04"
+    },
+    {
+      "username": "Greek Freak",
+      "email": "greekfreak@nba.com",
+      "password": "password05"
+    },
+    {
+      "username": "Draymond Green",
+      "email": "draymondgreen@nba.com",
+      "password": "password06"
+    }
+  ]
+  
