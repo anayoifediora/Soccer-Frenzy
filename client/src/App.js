@@ -2,9 +2,11 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import { ApolloClient, InMemoryCache, ApolloProvider  } from '@apollo/client';
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 
 import Header from './components/Header';
+import Home from './pages/Home';
+import SingleArticle from './pages/singleArticle';
 
 
 
@@ -15,16 +17,20 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    
-    <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh">
-        <Header/>
-        <div className="container">
-          {/* <Home/> */}
+    <BrowserRouter>
+      <ApolloProvider client={client}>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header/>
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/articles/:articleId" element={<SingleArticle/>}/>
+            </Routes>
+          </div>
+          {/* <Footer/> */}
         </div>
-        {/* <Footer/> */}
-      </div>
-    </ApolloProvider>
+      </ApolloProvider>
+    </BrowserRouter>
 
   );
 }
