@@ -4,6 +4,7 @@ import { useLazyQuery } from '@apollo/client';
 import { QUERY_MY_ARTICLES } from '../utils/queries';
 
 import ArticleForm from '../components/ArticleForm';
+import Auth from '../utils/auth';
 
 const Profile = () => {
     const [getArticles, { loading, data }] = useLazyQuery(QUERY_MY_ARTICLES);
@@ -20,43 +21,38 @@ const Profile = () => {
         setArticles(data?.articles || []);
     }, [data]);
     return (
-        <div className="container">
-        <ArticleForm/>
-            <div className="row">
-                <div className="col-12">
-                    <h1 className="page-header">My Articles</h1>
-                </div>
-                {loading ? (
-                    <div>Loading...</div>
-                ) : (
-                    <div className="col-12">
-                        {articles.map((article) => (
-                            <div key={article._id} className="card mb-3">
-                                <h4 className="card-header bg-dark text-light p-2 m-0">
-                                    <Link
-                                        className="text-light"
-                                        to={`/articles/${article._id}`}
-                                    >
-                                        {article.title}
-                                    </Link>{' '}
-                                    <br />
-                                    <span style={{ fontSize: '1rem' }}>
-                                        authored by {article.articleAuthor}
-                                    </span>
-                                </h4>
-                                <div className="card-body bg-light p-2">
-                                    <Link to={`/articles/${article._id}`}>
-                                        <p>{article.articleText}</p>
-                                        <p className="mb-0">
-                                            Comments: {article.commentCount}
-                                        </p>
-                                    </Link>
+        <div>
+            {Auth.loggedIn() ? (
+            <>
+                <ArticleForm/>
+                <h2>My Articles</h2>
+                    
+                    {loading ? (
+                        <div>Loading...</div>
+                    ) : (
+                        
+                            articles.map((article) => (
+                                <div key={article._id} className="card m-3">
+                                    <h5 className="card-header">By {article.articleAuthor} on {article.createdAt}</h5>
+                                        <Link
+                                            style={{ textDecoration: 'none' }}
+                                            to={`/articles/${article._id}`}
+                                        >
+                                        <h5 className="card-title">{article.title}</h5>
+                                        </Link>
+                                        <img className= "img-thumbnail img-fluid m-2"src={article.image} alt="..." />
+                                        <p className="card-text"> Comments: {article.commentCount}</p>
+                                        <i className="bi bi-chat-left" style={{fontSize: '2rem'}}></i>
+                                    
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </div>
+                            ))
+                    
+                    )}
+            </>
+            ) : (
+                <h4>Kindly log in to view this page 😊</h4>
+            )}
+            
         </div>
     );
 }

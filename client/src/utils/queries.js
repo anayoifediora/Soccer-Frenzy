@@ -32,14 +32,14 @@ export const QUERY_SINGLE_ARTICLE = gql`
     }
 `;
 export const QUERY_MY_ARTICLES = gql`
-    query myArticles {
-        articles {
-            _id
-            title
-            image
-            createdAt
-            articleAuthor
-            commentCount
+    query articles($username: String) {
+        articles(username: $username) {
+        title
+        image
+        createdAt
+        commentCount
+        articleText
+        articleAuthor
         }
     }
 `;
