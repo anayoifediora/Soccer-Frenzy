@@ -8,6 +8,8 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import SingleArticle from './pages/singleArticle';
 import Footer from './components/Footer';
+import Profile from './pages/Profile';
+import Login from './pages/Login';
 
 
 const client = new ApolloClient({
@@ -25,6 +27,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home/>}/>
               <Route path="/articles/:articleId" element={<SingleArticle/>}/>
+              <Route path="/profile" element={<Profile/>}/>
+              <Route path="/login" element={<Login/>}/>
             </Routes>
           </div>
           <Footer/>

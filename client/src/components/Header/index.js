@@ -9,7 +9,8 @@ const Header = () => {
         <h1 className="m-0" 
             style={{ fontSize: '4rem', 
             fontWeight: "bolder", display: "flex", 
-            justifyContent: "flex-start" }}>
+            justifyContent: "flex-start",
+            color: 'var(--light-cyan)' }}>
           Soccer Frenzy
         </h1>
       </div>

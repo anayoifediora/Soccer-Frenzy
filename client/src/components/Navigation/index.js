@@ -6,14 +6,14 @@ const Navigation = () => {
     return (
         <div>
             <ul className="nav nav-pills justify-content-end" style={{flexWrap: "nowrap"}}>
-                <li className="nav-item">
+                <li className="nav-item" >
                     <Link className="nav-link active" aria-current="page" to={`/`}>Home</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Profile</a>
+                    <Link className="nav-link" to={"/profile"}>Profile</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Login</a>
+                    <Link className="nav-link" to={"/login"}>Login</Link>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">SignUp</a>
