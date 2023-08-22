@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import { QUERY_MY_ARTICLES } from '../utils/queries';
 
 import ArticleForm from '../components/ArticleForm';
 
 const Profile = () => {
-    const { loading, data } = useQuery(QUERY_MY_ARTICLES);
-    const articles = data?.myArticles || [];
+    const [getArticles, { loading, data }] = useLazyQuery(QUERY_MY_ARTICLES);
+    const [articles, setArticles] = useState([]);
     console.log(articles);
 
-    
+    useEffect( async () => {
+        await getArticles();
+        console.log("message:", data);
+    }, []);
+
+    useEffect(() => {
+        console.log("fetchedData",data);
+        setArticles(data?.articles || []);
+    }, [data]);
     return (
         <div className="container">
-        {/* <ArticleForm/> */}
+        <ArticleForm/>
             <div className="row">
                 <div className="col-12">
                     <h1 className="page-header">My Articles</h1>

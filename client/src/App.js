@@ -10,6 +10,7 @@ import SingleArticle from './pages/singleArticle';
 import Footer from './components/Footer';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 
 const client = new ApolloClient({
@@ -29,6 +30,7 @@ function App() {
               <Route path="/articles/:articleId" element={<SingleArticle/>}/>
               <Route path="/profile" element={<Profile/>}/>
               <Route path="/login" element={<Login/>}/>
+              <Route path="/signup" element={<Signup/>}/>
             </Routes>
           </div>
           <Footer/>

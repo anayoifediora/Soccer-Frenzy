@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,12 @@ import { ADD_ARTICLE } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const ArticleForm = () => {
-    const [articleText, setText] = useState("");
+    const [article, setArticle] = useState({ articleText: "", title: "" } );
+    const [userProfile, setUserProfile] = useState(null);
+    useEffect(() => {
+        const profile = Auth.getProfile().data;
+        setUserProfile(profile);
+    }, []);
 
     const [addArticle, { error }] = useMutation(ADD_ARTICLE);
 
@@ -15,14 +20,14 @@ const ArticleForm = () => {
         event.preventDefault();
 
         try {
-            const { data } = await addArticle({
+            const { data, error } = await addArticle({
                 variables: {
-                    articleText,
-                    articleAuthor: Auth.getProfile().data.username,
+                    ...article,
+                    articleAuthor: userProfile.username,
                 },
             });
-
-            setText("");
+            console.log(data, error);
+            setArticle({articleText: "", title: ""});
         } catch (err) {
             console.error(err);
         }
@@ -30,27 +35,31 @@ const ArticleForm = () => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-
-        if (name === "articleText") {
-            setText(value);
-        }
+            setArticle({...article, [name]: value});
+        
     }
-
+    
     return (
         <div>
             <h3>Post your article!</h3>
 
-            {Auth.loggedIn() ? (
+            {Auth.loggedIn() && userProfile ? (
                 <>
                     <p>
-                        Posting as: {Auth.getProfile().data.username}
+                        Posting as: {userProfile.username}
                     </p>
                     <form onSubmit={handleFormSubmit}>
                         <div>
+                            <input
+                            className=""
+                            value={article.title}
+                            name="title"
+                            onChange={handleChange}>
+                            </input>
                             <textarea
                                 name="articleText"
                                 placeholder="Here's a new article..."
-                                value={articleText}
+                                value={article.articleText}
                                 onChange={handleChange}
                             ></textarea>
                         </div>

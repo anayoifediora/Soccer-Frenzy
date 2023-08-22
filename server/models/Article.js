@@ -11,7 +11,7 @@ const articleSchema = new Schema({
     image: {
         type: String,
         required: false,
-        default: 'https://via.placeholder.com/300x200',
+        default: "https://cdn.punchng.com/wp-content/uploads/2023/07/28131406/WhatsApp-Image-2023-07-28-at-4.51.22-AM-e1690546446284.jpeg",
         match:[/\.(png|svg|jpg|jpeg|gif)$/]
     },
     articleText: {

@@ -1,12 +1,23 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
+import React, { useState, useEffect } from 'react';
+import { useLazyQuery } from '@apollo/client';
 import { QUERY_ARTICLES } from '../utils/queries';
 import { Link } from 'react-router-dom';
 
 
 const Home = () => {
-    const { loading, data } = useQuery(QUERY_ARTICLES);
-    const articles = data?.articles || [];
+    const [getArticles, { loading, data }] = useLazyQuery(QUERY_ARTICLES);
+    const [articles, setArticles] = useState([]);
+    // let articles = data?.articles || [];
+
+    useEffect( async () => {
+        await getArticles();
+        console.log("message:", data);
+    }, []);
+
+    useEffect(() => {
+        console.log("fetchedData",data);
+        setArticles(data?.articles || []);
+    }, [data]);
     
     return (
         <main>
@@ -14,8 +25,8 @@ const Home = () => {
             {loading ? (
                 <div>Loading...</div>
             ) : (
-              articles.map((article) => (  
-                <div className="card m-3">
+              articles.map((article, index) => (  
+                <div className="card m-3" key={index}>
                     <h5 className="card-header">By {article.articleAuthor} on {article.createdAt}</h5>
                     <div className="card-body">
                         <Link

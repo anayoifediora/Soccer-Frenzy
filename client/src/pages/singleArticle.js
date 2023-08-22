@@ -19,7 +19,7 @@ const SingleArticle = () => {
             <h5>Author: {article.articleAuthor}</h5>
             <h3>{article.createdAt}</h3>
             <img src={article.image} alt="place photo here" />
-            <p>{article.articleText}</p>
+            <p className="articleText">{article.articleText}</p>
             <p>{article.comments}</p>
         </div>
     );
