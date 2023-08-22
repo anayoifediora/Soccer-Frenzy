@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-rou
 import Header from './components/Header';
 import Home from './pages/Home';
 import SingleArticle from './pages/singleArticle';
-
+import Footer from './components/Footer';
 
 
 const client = new ApolloClient({
@@ -27,7 +27,7 @@ function App() {
               <Route path="/articles/:articleId" element={<SingleArticle/>}/>
             </Routes>
           </div>
-          {/* <Footer/> */}
+          <Footer/>
         </div>
       </ApolloProvider>
     </BrowserRouter>

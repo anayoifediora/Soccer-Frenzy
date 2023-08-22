@@ -58,3 +58,14 @@ h1 {
 .card-text {
   font-size: 20px;
 }
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--marian-blue);
+  height: 125px;
+  color: var(--light-cyan);
+}
+i {
+  margin: 0 1rem;
+}
