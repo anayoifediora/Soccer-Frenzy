@@ -39,3 +39,18 @@ mutation addArticle($title: String!, $articleText: String!, $articleAuthor: Stri
     }
   }
 `; 
+
+export const ADD_COMMENT = gql`
+mutation addComment($articleId: ID!, $commentText: String!, $commentAuthor: String!) {
+    addComment(articleId: $articleId, commentText: $commentText, commentAuthor: $commentAuthor) {
+      _id
+      commentCount
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
+    } 
+  }
+`;

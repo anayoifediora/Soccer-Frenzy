@@ -18,7 +18,7 @@ const articleSchema = new Schema({
         type: String,
         required: true,
         minlength: 1,
-        maxlength: 2800,
+        maxlength: 10800,
         trim: true,
     },
     articleAuthor: {

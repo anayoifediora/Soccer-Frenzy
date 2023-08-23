@@ -31,9 +31,10 @@ const Profile = () => {
                         <div>Loading...</div>
                     ) : (
                         
-                            articles.map((article) => (
-                                <div key={article._id} className="card m-3">
+                            articles.map((article, index) => (
+                                <div key={index} className="card m-3">
                                     <h5 className="card-header">By {article.articleAuthor} on {article.createdAt}</h5>
+                                    <div className="card-body">
                                         <Link
                                             style={{ textDecoration: 'none' }}
                                             to={`/articles/${article._id}`}
@@ -43,7 +44,7 @@ const Profile = () => {
                                         <img className= "img-thumbnail img-fluid m-2"src={article.image} alt="..." />
                                         <p className="card-text"> Comments: {article.commentCount}</p>
                                         <i className="bi bi-chat-left" style={{fontSize: '2rem'}}></i>
-                                    
+                                    </div>
                                 </div>
                             ))
                     
