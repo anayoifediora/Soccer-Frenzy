@@ -40,8 +40,10 @@ const CommentForm = ({ articleId }) => {
         window.location.reload(`/articles/${articleId}`);
     };
     return (
-        <div>
-            <h4>Comment</h4>
+        <div style={{marginTop: "15px", marginBottom: "30px", borderStyle: "double", width: "50%"}}>
+            <div style={{display: "flex"}}>
+                <h4 style={{margin: "10px"}}>Comment</h4>
+            </div>
             <form
                 
                 onSubmit={handleFormSubmit}
@@ -51,9 +53,10 @@ const CommentForm = ({ articleId }) => {
                     value={comment.commentText}
                     name="commentText"
                     className="form-input"
+                    style={{ height: '50px', margin: "10px", width: "95%" }}
                     onChange={handleChange}
                 ></textarea>
-                <button className="btn btn-primary" type="submit">
+                <button className="btn btn-primary" type="submit" style={{margin: "10px"}}>
                     Submit
                 </button>
                 {error && <span className="ml-2">Something went wrong...</span>}

@@ -12,7 +12,7 @@ const Header = () => {
               style={{ fontSize: '4rem', 
               fontWeight: "bolder", display: "flex", 
               justifyContent: "flex-start",
-              color: 'var(--light-cyan)'
+              color: 'var(--light-cyan)',
                }}>
             Soccer Frenzy
           </h1>

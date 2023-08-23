@@ -31,7 +31,7 @@ code {
   justify-content: center;
  }
  /* #root {
-  background-color: rgb(221, 216, 211);
+  background-color: rgb(245, 242, 242);
  } */
 
  * {
@@ -76,7 +76,6 @@ main {
   font-weight: bold;
 }
 .card-body {
-  background-color: var(--non-photo-blue-2);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,7 +85,8 @@ main {
   padding-bottom: 5px;
 }
 footer {
-  position: static;
+  position: relative;
+  top: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,4 +134,9 @@ i {
   height: 100%;
   margin: 0.5rem;
   object-fit: cover;
+}
+.error {
+  margin-bottom: 645px;
+  text-align: center;
+  font-color: red;
 }

@@ -16,6 +16,7 @@ const SingleArticle = () => {
     if (loading) {
         return <div>Loading...</div>;
     }
+    console.log(article);
     return (
         <div className="article-container">
             {Auth.loggedIn() ? (  
@@ -26,13 +27,33 @@ const SingleArticle = () => {
                     <h3>{article.createdAt}</h3>
                     <img src={article.image} alt="place photo here" />
                     <p className="articleText">{article.articleText}</p>
-                    <p>{article.comments}</p>
+                </div>
+                <div style={{backgroundColor: "rgb(245, 242, 242)"}}>
+                    <div>
+                        <h3 style ={{margin: "15px"}}>{article.commentCount} comments</h3>
+                    </div>
+                    <div>
+                        {article.comments.map((comment) => (
+                            <div key={comment._id} className="card mb-3" style={{marginLeft: "15px"}}>
+                                <p className="card-header" style= {{backgroundColor: "var(--marian-blue)", color: "white", fontWeight: "bold"}}>
+                                    {comment.commentAuthor} commented{' '}
+                                    <span style={{ fontSize: '1rem' }}>
+                                        on {comment.createdAt}
+                                    </span>
+                                </p>
+                                <div className="card-body">
+                                    <em style={{fontSize: "20px"}}>{comment.commentText}</em>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
                 <CommentForm articleId={article._id} />
             </>
                 
             ) : (
-                <h4>Kindly log in to view this article 😊</h4>
+                <h4 className="error">Kindly log in to view this article 😊</h4>
             )}
         </div>
     );
