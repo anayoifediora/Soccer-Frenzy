@@ -35,6 +35,7 @@ export const QUERY_SINGLE_ARTICLE = gql`
 export const QUERY_MY_ARTICLES = gql`
     query articles($username: String) {
         articles(username: $username) {
+        _id
         title
         image
         createdAt

@@ -37,7 +37,7 @@ const Home = () => {
                         </Link>
                         <img className= "img-thumbnail img-fluid m-2"src={article.image} alt="..." />
                         <p className="card-text"> Comments: {article.commentCount}</p>
-                        <i className="bi bi-chat-left" style={{fontSize: '2rem'}}></i>
+                        
                     </div>
                 </div>))
                 )

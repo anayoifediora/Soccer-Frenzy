@@ -15,26 +15,26 @@ const Navigation = () => {
             {Auth.loggedIn() ? (
                 <ul className="nav nav-pills justify-content-end" style={{flexWrap: "nowrap"}}>
                     <li className="nav-item" >
-                        <Link className="nav-link active" aria-current="page" to={`/`}>Home</Link>
+                        <Link className="nav-link active text-light" aria-current="page" to={`/`}>Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to={"/profile"}>Profile</Link>
+                        <Link className="nav-link text-light" to={"/profile"}>Profile</Link>
                     </li>
                     <li className="nav-item">
-                        <button className="nav-link" onClick={logout}>Logout</button>
+                        <button className="nav-link text-light" onClick={logout}>Logout</button>
                     </li>
                 </ul>
                     ) : (
                 <>
                     <ul className="nav nav-pills justify-content-end" style={{flexWrap: "nowrap"}}>
                         <li className="nav-item" >
-                            <Link className="nav-link active" aria-current="page" to={`/`}>Home</Link>
+                            <Link className="nav-link active text-light" aria-current="page" to={`/`}>Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to={"/login"}>Login</Link>
+                            <Link className="nav-link text-light" to={"/login"}>Login</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to={"/signup"} tabIndex="-1">SignUp</Link>
+                            <Link className="nav-link text-light" to={"/signup"} tabIndex="-1">SignUp</Link>
                         </li>
                     </ul>
                 </>

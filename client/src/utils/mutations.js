@@ -54,3 +54,21 @@ mutation addComment($articleId: ID!, $commentText: String!, $commentAuthor: Stri
     } 
   }
 `;
+
+export const REMOVE_ARTICLE = gql`
+mutation removeArticle($articleId: ID!) {
+    removeArticle(articleId: $articleId) {
+      _id
+      title
+      articleText
+      articleAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
+    }
+  }
+`;
