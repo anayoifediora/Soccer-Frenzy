@@ -72,3 +72,12 @@ mutation removeArticle($articleId: ID!) {
     }
   }
 `;
+
+export const UPDATE_ARTICLE = gql`
+mutation Mutation($articleId: ID!, $articleText: String!) {
+  updateArticle(articleId: $articleId, articleText: $articleText) {
+    title
+    articleText
+  }
+}
+`;

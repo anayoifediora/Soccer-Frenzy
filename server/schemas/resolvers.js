@@ -18,8 +18,8 @@ const resolvers = {
         users: async () => {
             return User.find().populate('articles').populate('followers');
         },
-        user: async (parent, { username }) => {
-            return User.findOne({ username })
+        user: async (parent, { email }) => {
+            return User.findOne({ email })
             .populate('articles')
             .populate('followers')
             .populate({

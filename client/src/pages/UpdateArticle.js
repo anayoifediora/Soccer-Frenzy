@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import { ADD_ARTICLE } from "../../utils/mutations";
+import { UPDATE_ARTICLE } from "../utils/mutations";
 
-import Auth from "../../utils/auth";
+import Auth from "../utils/auth";
 
-const ArticleForm = () => {
+// q: What's wrong with the whole code below?
+// a: The code below is not working because the articleId is not being passed to the updateArticle mutation.
+//    The articleId is being passed to the UpdateForm component via the useParams hook, but it is not being
+//    passed to the updateArticle mutation. The articleId is needed to update the article in the database.
+// q: How can you fix it?
+// a: I fixed it by passing the articleId to the updateArticle mutation.
+
+const UpdateForm = () => {
+    const { articleId } = useParams();
+    console.log(articleId);
     
     const [article, setArticle] = useState({ articleText: "", title: "" } );
     const [userProfile, setUserProfile] = useState(null);
@@ -15,26 +25,21 @@ const ArticleForm = () => {
         setUserProfile(profile);
     }, []);
 
-    const [addArticle, { error }] = useMutation(ADD_ARTICLE);
+    const [updateArticle, { error }] = useMutation(UPDATE_ARTICLE);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
         try {
-            const { data, error } = await addArticle({
-                variables: {
-                    ...article,
-                    articleAuthor: userProfile.username,
-                },
+            const { data } = await updateArticle({
+                variables: { articleId: articleId, articleText: article.articleText },
             });
-            console.log(data, error);
-            setArticle({articleText: "", title: ""});
+            console.log(data);
+            setArticle({ articleText: "", title: "" });
         } catch (err) {
             console.error(err);
         }
-        
         window.location.reload("/profile");
-    }
+    };
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -46,7 +51,7 @@ const ArticleForm = () => {
         <main className="flex-row justify-center mb-4">
             <div className="col-12 col-lg-10" id="article-form">
                 <div className="card">
-                    <h4 className="card-header p-2" style={{backgroundColor: "var(--marian-blue)", color: "var(--light-cyan)"}}>Post your article</h4>
+                    <h4 className="card-header p-2" style={{backgroundColor: "var(--marian-blue)", color: "var(--light-cyan)"}}>Share your article</h4>
                     <div className="card-body">
                         {Auth.loggedIn() && userProfile ? (
                             <>
@@ -72,12 +77,7 @@ const ArticleForm = () => {
                                             onChange={handleChange}
                                         ></textarea>
                                     </div>
-                                    <div className="mb-3">
-                                        <input type="file" />
-                                        <button>Upload</button>
-                                    </div>
-
-
+            
                                     <div>
                                         <button className="btn btn-block btn-primary"
                                                 style={{ cursor: 'pointer', 
@@ -86,6 +86,7 @@ const ArticleForm = () => {
                                                         color: "var(--light-cyan)", 
                                                         backgroundColor: "var(--marian-blue)" }}
                                                 type="submit"
+                                                
                                         >
                                         Submit
                                         </button>
@@ -106,4 +107,4 @@ const ArticleForm = () => {
     );
 };
 
-export default ArticleForm;
+export default UpdateForm;

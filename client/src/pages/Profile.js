@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+ import React from 'react';
 import { Link } from 'react-router-dom';
-import { useLazyQuery, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 
 import { QUERY_MY_ARTICLES } from '../utils/queries';
 import { REMOVE_ARTICLE } from '../utils/mutations';
+
+
 import { useMutation } from '@apollo/client';
 
 import ArticleForm from '../components/ArticleForm';
@@ -13,17 +15,19 @@ const Profile = () => {
     // const [getArticles, { loading, data }] = useLazyQuery(QUERY_MY_ARTICLES);
     // const [articles, setArticles] = useState([]);
     // console.log(articles);
-
-    const { loading, data } = useQuery(QUERY_MY_ARTICLES);
-    const articles = data?.articles || [];
+    
+    const { loading, data } = useQuery(QUERY_MY_ARTICLES, {
+        variables: { email: Auth.getProfile().data.email },
+    });
+    const articles = data?.user?.articles|| [];
     console.log(articles);
-
+ 
     // useEffect(() => {
     //      getArticles();
     //     console.log("message:", data);
     // }, []);
 
-    const [removeArticle, { error }] = useMutation(REMOVE_ARTICLE);
+    const [removeArticle, ] = useMutation(REMOVE_ARTICLE);
 
     const handleDeleteArticle = async (articleId) => {
 
@@ -42,11 +46,8 @@ const Profile = () => {
         }
         window.location.reload();
     };
-    // useEffect(() => {
-    //     console.log("fetchedData",data);
-    //     setArticles(data?.articles || []);
-    // }, [data]);
 
+    
     return (
         <div>
             {Auth.loggedIn() ? (
@@ -58,7 +59,7 @@ const Profile = () => {
                         <div>Loading...</div>
                     ) : (                      
                             articles.map((article) => (
-                                <div key={article._id} className="card m-3">
+                                <div key={article._id} className="card m-3 border border-dark">
                                     <h5 className="card-header">By {article.articleAuthor} on {article.createdAt}</h5>
                                     <div className="card-body">
                                         <Link
@@ -69,9 +70,26 @@ const Profile = () => {
                                         </Link>
                                         <img className= "img-thumbnail img-fluid m-2"src={article.image} alt="..." />
                                         <p className="card-text"> Comments: {article.commentCount}</p>
-                                        <button onClick={() => handleDeleteArticle(article._id)} className="btn btn-primary"style= {{fontSize: '1.5rem', width: "20%"}}>Delete
-                                        <i className="bi bi-trash"  style={{fontSize: '1.5rem'}}></i>
-                                        </button>
+                                        <div>
+                                            <button onClick={() => handleDeleteArticle(article._id)} 
+                                                    className="btn btn-primary"
+                                                    style= {{fontSize: '1.5rem', width: "15%", margin: "5px"}}
+                                            >
+                                            Delete
+                                            <i className="bi bi-trash"  style={{fontSize: '1.5rem'}}></i>
+                                            </button>
+                                            <Link
+                                                style={{ textDecoration: 'none' }}
+                                                to={`/update`}
+                                            >
+                                                <button className="btn btn-primary"
+                                                        style= {{fontSize: '1.5rem', width: "15%", margin: "5px"}}
+                                                >
+                                                Edit
+                                                <i className="bi bi-pencil-fill"  style={{fontSize: '1.5rem'}}></i>
+                                                </button>
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
                             ))

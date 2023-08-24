@@ -12,6 +12,7 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ProfileArticle from './pages/ProfileArticle';
+import UpdateArticle from './pages/UpdateArticle';
 
 
 const client = new ApolloClient({
@@ -31,6 +32,7 @@ function App() {
               <Route path="/articles/:articleId" element={<SingleArticle/>}/>
               <Route path="/profile" element={<Profile/>}/>
               <Route path="/profile/:articleId" element={<ProfileArticle/>}/>
+              <Route path="/update" element={<UpdateArticle/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/signup" element={<Signup/>}/>
             </Routes>

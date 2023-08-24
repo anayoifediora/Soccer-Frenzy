@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { QUERY_SINGLE_ARTICLE } from '../utils/queries';
+import { QUERY_PROFILE_ARTICLE} from '../utils/queries';
 
 import Auth from '../utils/auth';
 import CommentForm from '../components/CommentForm';
@@ -9,7 +9,7 @@ import CommentForm from '../components/CommentForm';
 const ProfileArticle = () => {
     const { articleId } = useParams();
 
-    const { loading, data } = useQuery(QUERY_SINGLE_ARTICLE, {
+    const { loading, data } = useQuery(QUERY_PROFILE_ARTICLE, {
         variables: { articleId: articleId },
     });
     const article = data?.article || {};

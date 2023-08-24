@@ -121,8 +121,9 @@ i {
   position: relative;
   left: 10%;
 }
-.single-article > h1, h5, h3, p {
+.single-article > h1, h5, h3, p, img {
   margin-bottom: 10px;
+  padding: 5px;
 }
 .single-article p {
   text-align: justify;

@@ -18,7 +18,7 @@ const SingleArticle = () => {
     }
     console.log(article);
     return (
-        <div className="article-container">
+        <div className="article-container border border-1">
             {Auth.loggedIn() ? (  
             <>
                 <div className="single-article">         
