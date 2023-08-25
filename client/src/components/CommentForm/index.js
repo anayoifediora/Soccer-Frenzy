@@ -40,7 +40,7 @@ const CommentForm = ({ articleId }) => {
         window.location.reload(`/articles/${articleId}`);
     };
     return (
-        <div style={{marginTop: "15px", marginBottom: "30px", borderStyle: "double", width: "50%"}}>
+        <div className="comment-div" style={{marginTop: "15px", marginBottom: "30px", marginLeft: "10px", borderStyle: "double"}}>
             <div style={{display: "flex"}}>
                 <h4 style={{margin: "10px"}}>Comment</h4>
             </div>

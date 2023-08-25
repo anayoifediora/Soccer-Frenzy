@@ -20,7 +20,7 @@ const Profile = () => {
         variables: { email: Auth.getProfile().data.email },
     });
     const articles = data?.user?.articles|| [];
-    console.log(articles);
+    // console.log(articles);
  
     // useEffect(() => {
     //      getArticles();
@@ -31,10 +31,10 @@ const Profile = () => {
 
     const handleDeleteArticle = async (articleId) => {
 
-        // const token = Auth.loggedIn() ? Auth.getToken() : null;
-        // if (!token) {
-        //     return false;
-        // }
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        if (!token) {
+            return false;
+        }
         try {
             const { data } = await removeArticle({
                 variables: { articleId: articleId },
@@ -53,13 +53,13 @@ const Profile = () => {
             {Auth.loggedIn() ? (
             <>
                 <ArticleForm/>
-                <h2>My Articles</h2>
+                <h2 className="profile-header">My Articles</h2>
                     
                     {loading ? (
                         <div>Loading...</div>
                     ) : (                      
                             articles.map((article) => (
-                                <div key={article._id} className="card m-3 border border-dark">
+                                <div key={article._id} className="card m-3 border border-dark ">
                                     <h5 className="card-header">By {article.articleAuthor} on {article.createdAt}</h5>
                                     <div className="card-body">
                                         <Link
@@ -70,26 +70,27 @@ const Profile = () => {
                                         </Link>
                                         <img className= "img-thumbnail img-fluid m-2"src={article.image} alt="..." />
                                         <p className="card-text"> Comments: {article.commentCount}</p>
-                                        <div>
+                                        
                                             <button onClick={() => handleDeleteArticle(article._id)} 
                                                     className="btn btn-primary"
-                                                    style= {{fontSize: '1.5rem', width: "15%", margin: "5px"}}
+                                                    style= {{fontSize: '1.5rem', width: "100%", margin: "5px", borderRadius: "0px"}}
                                             >
                                             Delete
                                             <i className="bi bi-trash"  style={{fontSize: '1.5rem'}}></i>
                                             </button>
                                             <Link
                                                 style={{ textDecoration: 'none' }}
-                                                to={`/update`}
+                                                to={`/update/${article._id}`}
+                                                
                                             >
                                                 <button className="btn btn-primary"
-                                                        style= {{fontSize: '1.5rem', width: "15%", margin: "5px"}}
+                                                        style= {{fontSize: '1.5rem', width: "100%", margin: "5px", borderRadius: "0px"}}
                                                 >
                                                 Edit
-                                                <i className="bi bi-pencil-fill"  style={{fontSize: '1.5rem'}}></i>
+                                                <i className="bi bi-pencil"  style={{fontSize: '1.5rem'}}></i>
                                                 </button>
                                             </Link>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             ))

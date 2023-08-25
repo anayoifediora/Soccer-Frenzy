@@ -25,12 +25,12 @@ const SingleArticle = () => {
                     <h1>{article.title}</h1>
                     <h5><em>Author: {article.articleAuthor}</em></h5>
                     <h3>{article.createdAt}</h3>
-                    <img src={article.image} alt="place photo here" />
+                    <img src={article.image}/>
                     <p className="articleText">{article.articleText}</p>
                 </div>
                 <div style={{backgroundColor: "rgb(245, 242, 242)"}}>
                     <div>
-                        <h3 style ={{margin: "15px"}}>{article.commentCount} comments</h3>
+                        <h3 style ={{margin: "15px"}}>{article.commentCount} Comments</h3>
                     </div>
                     <div>
                         {article.comments.map((comment) => (
