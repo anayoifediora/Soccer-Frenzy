@@ -7,7 +7,7 @@ The project was developed based on the MERN stack framework using several Code l
 
 
 ## Link to Webpage
-[A link to the webpage can be found here] (https://glacial-plateau-12888-cbb958ef2bae.herokuapp.com/)
+Click [here](https://glacial-plateau-12888-cbb958ef2bae.herokuapp.com/) to view the application
 ## Table of Contents
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
@@ -77,5 +77,6 @@ This project is licensed under the MIT license.
 
 ## Questions
 Github username: https://github.com/anayoifediora
+Project Github Repo: https://github.com/anayoifediora/Soccer-Frenzy
 
 Any questions? please contact me via e-mail at anayoifediora@live.com

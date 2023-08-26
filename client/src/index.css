@@ -154,6 +154,30 @@ i {
 .comment-div {
   width: 50%; 
 }
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 95%;
+  }
+  .card-header {
+    font-size: 0.8rem;
+  }
+  .card-title {
+    font-size: 1rem;
+  }
+  .card-text {
+    font-size: 0.7rem;
+  }
+  .articleText {
+    font-size: 0.8rem;
+  }
+  .single-article img {
+    width: 100%;
+  }
+  .comment-div {
+    width: 100%;
+  }
+}
 @media screen and (max-width: 992px) {
   header {
     flex-direction: column;

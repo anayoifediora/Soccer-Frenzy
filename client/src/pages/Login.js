@@ -5,6 +5,7 @@ import { LOGIN_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
+// This page is the login page. It uses the LOGIN_USER mutation to login a user.
 const Login = () => {
     const [formState, setFormState] = useState({ email: "", password: "" });
     const [login, { error, data }] = useMutation(LOGIN_USER);
