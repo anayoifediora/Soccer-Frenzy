@@ -76,7 +76,7 @@ Web app developed by Kanayochi Ifediora, with support from Bootcamp Instructors,
 This project is licensed under the MIT license.
 
 ## Questions
-Github username: https://github.com/anayoifediora
-Project Github Repo: https://github.com/anayoifediora/Soccer-Frenzy
-
 Any questions? please contact me via e-mail at anayoifediora@live.com
+
+- [Github username](https://github.com/anayoifediora)
+- [Project Github Repo](https://github.com/anayoifediora/Soccer-Frenzy)

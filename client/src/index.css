@@ -23,6 +23,7 @@ code {
   --non-photo-blue: #90e0efff;
   --non-photo-blue-2: #ade8f4ff;
   --light-cyan: #caf0f8ff;
+  
  }
  
  img {
@@ -30,15 +31,16 @@ code {
   display: flex;
   justify-content: center;
  }
- /* #root {
-  background-color: rgb(245, 242, 242);
- } */
+ #root {
+  background-color: var(--light-cyan);
+ }
 
  * {
   font-family: 'Ysabeau Office', sans-serif;
  }
  html {
   height: 100%;
+  background-color: var(--light-cyan);
  }
   body {
     min-height: 100%;
@@ -61,6 +63,10 @@ h1 {
   color: var(--light-cyan);
   margin: 0 1rem;
   text-decoration: none;
+}
+.nav-item:hover {
+  color: var(--light-cyan);
+  text-decoration: underline;
 }
 main {
   display: flex;
@@ -136,6 +142,7 @@ i {
   margin-bottom: 10px;
   padding: 5px;
 }
+
 .single-article p {
   text-align: justify;
   margin-top: 10px;

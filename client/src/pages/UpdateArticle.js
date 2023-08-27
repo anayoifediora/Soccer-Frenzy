@@ -8,6 +8,7 @@ import { UPDATE_ARTICLE } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
+
 const UpdateForm = () => {
     const { articleId } = useParams();
     console.log(articleId);
@@ -39,7 +40,7 @@ const UpdateForm = () => {
         } catch (err) {
             console.error(err);
         }
-        window.location.assign(`/profile/${articleId}`);
+        await window.location.assign(`/profile/${articleId}`);
     };
 
    
@@ -66,10 +67,11 @@ const UpdateForm = () => {
                                         </input>
                                     </div>
                                     <div className="mb-3">
+                                        <label htmlFor="image" className="form-label">Text:</label>
                                         <textarea
                                             className="form-input"
                                             name="name"
-                                            placeholder="Write your article here..."
+                                            placeholder="Update your article here..."
                                             value={article.articleText}
                                             onChange={e => setArticle({...article, articleText: e.target.value})}
                                             

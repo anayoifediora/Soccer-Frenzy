@@ -32,7 +32,7 @@ const resolvers = {
             return Article.find(params).populate('comments').sort({ createdAt: -1 });
         },
         article: async (parent, { articleId }) => {
-            return Article.findOne({ _id: articleId }).populate('comments');
+            return Article.findOne({ _id: articleId }).populate('comments').sort({ createdAt: -1 });
         },
         comments: async (parent, { articleId }) => {
             const params = articleId ? { articleId } : {};
@@ -64,7 +64,7 @@ const resolvers = {
                 await User.findOneAndUpdate(
                     { username: articleAuthor },
                     { $addToSet: { articles: article._id } }
-                );
+                ).sort({ createdAt: -1 });
             return article;
         },
         addComment: async (parent, { articleId, commentText, commentAuthor }, context) => {
