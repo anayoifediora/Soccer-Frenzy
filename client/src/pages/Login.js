@@ -40,7 +40,7 @@ const Login = () => {
 
     return (
         <main className="flex-row justify-center mb-4">
-          <div className="col-12 col-lg-10">
+          <div className="col-12 col-lg-10" style={{position: "relative", left: "200px"}}>
             <div className="card">
               <h4 className="card-header p-2" style={{backgroundColor: "var(--marian-blue)", color: "var(--light-cyan)"}}>Login</h4>
               <div className="card-body">
@@ -52,6 +52,7 @@ const Login = () => {
                 ) : (
                   <form className="login-form" onSubmit={handleFormSubmit}>
                     <div className="mb-3">
+                      <label htmlFor="email" style={{fontSize: "22px", fontWeight: "bolder"}}>Email address:</label>
                         <input
                         className="form-input"
                         placeholder="Your email"
@@ -62,6 +63,7 @@ const Login = () => {
                         />
                     </div>
                     <div className="mb-3">
+                      <label htmlFor="pwd" style={{fontSize: "22px", fontWeight: "bolder"}}>Password:</label>
                         <input
                         className="form-input"
                         placeholder="******"
