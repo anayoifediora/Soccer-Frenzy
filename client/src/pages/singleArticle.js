@@ -42,7 +42,7 @@ const SingleArticle = () => {
                                     </span>
                                 </p>
                                 <div className="card-body">
-                                    <em style={{fontSize: "20px"}}>{comment.commentText}</em>
+                                    <p style={{fontSize: "20px"}}>{comment.commentText}</p>
                                 </div>
                             </div>
                         ))}
