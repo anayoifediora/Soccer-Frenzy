@@ -3,7 +3,9 @@
 ## Project Description
 Soccer Frenzy is a blog for lovers of the beautiful game to post articles, share their thoughts and opinions on everything Soccer! It allows soccer enthusiasts to sign-up or login (for existing users) and post soccer-related articles. Users will be able to comment on articles posted by other users, and they would also have followers.
 
-The project was developed based on the MERN stack framework using several Code libraries and packages. The front-end was developed using *React*, including the *React-Router*. The backend was developed using *GraphQL* with a *Node.js* and *Express*.js server. For the database, the project utilized *MongoDB* and the *Mongoose ODM*. Other packages utilized include `bcrypt`, `JWT`, `dotenv`, `jsonwebtoken`, `apollo-server-express` e.t.c. CSS was based mostly on *Bootstrap 5*, including *Bootstrap Icons*.
+I was motivated to build this project because of my love for soccer. I'm a huge soccer fan and I wanted to design an application that fellow soccer lovers would appreciate.
+
+The project was developed based on the MERN stack framework using several Code libraries and packages. The front-end was developed using *React*, including the *React-Router*. The backend was developed using *GraphQL* with a *Node.js* and *Express.js* server. For the database, the project utilized *MongoDB* and the *Mongoose ODM*. Other packages utilized include `bcrypt`, `JWT`, `dotenv`, `jsonwebtoken`, `apollo-server-express` e.t.c. CSS was based mostly on *Bootstrap 5*, including *Bootstrap Icons*.
 
 
 ## Link to Webpage

@@ -12,20 +12,12 @@ import ArticleForm from '../components/ArticleForm';
 import Auth from '../utils/auth';
 
 const Profile = () => {
-    // const [getArticles, { loading, data }] = useLazyQuery(QUERY_MY_ARTICLES);
-    // const [articles, setArticles] = useState([]);
-    // console.log(articles);
     
     const { loading, data } = useQuery(QUERY_MY_ARTICLES, {
         variables: { email: Auth.getProfile().data.email },
     });
     const articles = data?.user?.articles|| [];
-    // console.log(articles);
- 
-    // useEffect(() => {
-    //      getArticles();
-    //     console.log("message:", data);
-    // }, []);
+    
 
     const [removeArticle, ] = useMutation(REMOVE_ARTICLE);
 
@@ -72,8 +64,8 @@ const Profile = () => {
                                         <p className="card-text"> Comments: {article.commentCount}</p>
                                         
                                             <button onClick={() => handleDeleteArticle(article._id)} 
-                                                    className="btn btn-primary"
-                                                    style= {{fontSize: '1.5rem', width: "100%", margin: "5px", borderRadius: "0px"}}
+                                                    className="btn"
+                                                    style= {{color: "var(--light-cyan)", backgroundColor: "var(--marian-blue)", fontSize: '1.5rem', width: "100%", margin: "5px", borderRadius: "7px"}}
                                             >
                                             Delete
                                             <i className="bi bi-trash"  style={{fontSize: '1.5rem'}}></i>
@@ -83,8 +75,8 @@ const Profile = () => {
                                                 to={`/update/${article._id}`}
                                                 
                                             >
-                                                <button className="btn btn-primary"
-                                                        style= {{fontSize: '1.5rem', width: "100%", margin: "5px", borderRadius: "0px"}}
+                                                <button className="btn"
+                                                        style= {{color: "var(--light-cyan)", backgroundColor: "var(--marian-blue)", fontSize: '1.5rem', width: "100%", margin: "5px", borderRadius: "7px"}}
                                                 >
                                                 Edit
                                                 <i className="bi bi-pencil"  style={{fontSize: '1.5rem'}}></i>
