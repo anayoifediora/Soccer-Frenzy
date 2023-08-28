@@ -22,7 +22,7 @@ const SingleArticle = () => {
             {Auth.loggedIn() ? (  
             <>
                 <div className="single-article">         
-                    <h1>{article.title}</h1>
+                    <h1 style={{fontWeight: "bolder", color: "var(--marian-blue)"}}>{article.title}</h1>
                     <h5><em>Author: {article.articleAuthor}</em></h5>
                     <h3>{article.createdAt}</h3>
                     <img src={article.image}/>

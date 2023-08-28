@@ -70,6 +70,7 @@ const ArticleForm = () => {
                                             placeholder="Write your article here..."
                                             value={article.articleText}
                                             onChange={handleChange}
+                                            style={{ height: "200px" }}
                                         ></textarea>
                                     </div>
                                     <div className="mb-3">

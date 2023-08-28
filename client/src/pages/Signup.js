@@ -57,6 +57,7 @@ const Signup = () => {
                 ) : (
                   <form className="login-form" onSubmit={handleFormSubmit}>
                     <div className="mb-3">
+                      <label htmlFor="username" style={{fontSize: "22px", fontWeight: "bolder"}}>Username</label>
                         <input
                         className="form-input"
                         placeholder="Your username"
@@ -67,6 +68,7 @@ const Signup = () => {
                         />
                     </div>
                     <div className="mb-3">
+                      <label htmlFor="email" style={{fontSize: "22px", fontWeight: "bolder"}}>Email address</label>
                         <input
                         className="form-input"
                         placeholder="Your email"
@@ -77,6 +79,7 @@ const Signup = () => {
                         />
                     </div>
                     <div className="mb-3">
+                      <label htmlFor="pwd" style={{fontSize: "22px", fontWeight: "bolder"}}>Password</label>
                         <input
                         className="form-input"
                         placeholder="******"

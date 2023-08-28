@@ -21,7 +21,7 @@ const Home = () => {
     
     return (
         <main>
-            <h1>Latest News</h1>
+            <h1 style={{fontSize: "50px", fontWeight:"bolder", color: "var(--marian-blue)"}}>Latest News</h1>
             {loading ? (
                 <div>Loading...</div>
             ) : (
