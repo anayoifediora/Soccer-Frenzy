@@ -2,6 +2,7 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, Article, Comment } = require('../models');
 const { signToken } = require('../utils/auth');
 
+// Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {
     Query: {
         me: async (parent, args, context) => {
@@ -39,6 +40,7 @@ const resolvers = {
             return Comment.find(params).sort({ createdAt: -1 });
         }
     },
+    // Set up mutations to handle creating a user, logging a user in, adding, removing and updating articles.
     Mutation: {
         addUser: async (parent, {username, email, password }) => {
             const user = await User.create({ username, email, password });

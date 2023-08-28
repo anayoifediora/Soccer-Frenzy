@@ -3,11 +3,11 @@ import { useLazyQuery } from '@apollo/client';
 import { QUERY_ARTICLES } from '../utils/queries';
 import { Link } from 'react-router-dom';
 
-
+// This page is the home page. It uses the QUERY_ARTICLES query to get all articles.
 const Home = () => {
     const [getArticles, { loading, data }] = useLazyQuery(QUERY_ARTICLES);
     const [articles, setArticles] = useState([]);
-    // let articles = data?.articles || [];
+    
 
     useEffect( async () => {
         await getArticles();

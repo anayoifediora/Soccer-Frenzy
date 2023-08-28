@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+// Mutation to login a user
 export const LOGIN_USER = gql`
     mutation login($email: String!, $password: String!) {
         login(email: $email, password: $password) {
@@ -12,6 +13,7 @@ export const LOGIN_USER = gql`
     }
 `;
 
+// Mutation to create a user
 export const ADD_USER = gql`
 mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
@@ -24,6 +26,7 @@ mutation addUser($username: String!, $email: String!, $password: String!) {
   }
 `;
 
+// Mutation to add an article
 export const ADD_ARTICLE = gql`
 mutation addArticle($title: String!, $articleText: String!, $articleAuthor: String!) {
     addArticle(title: $title, articleText: $articleText, articleAuthor: $articleAuthor) {
@@ -40,6 +43,7 @@ mutation addArticle($title: String!, $articleText: String!, $articleAuthor: Stri
   }
 `; 
 
+// Mutation to add a comment
 export const ADD_COMMENT = gql`
 mutation addComment($articleId: ID!, $commentText: String!, $commentAuthor: String!) {
     addComment(articleId: $articleId, commentText: $commentText, commentAuthor: $commentAuthor) {
@@ -55,6 +59,7 @@ mutation addComment($articleId: ID!, $commentText: String!, $commentAuthor: Stri
   }
 `;
 
+// Mutation to remove an article
 export const REMOVE_ARTICLE = gql`
 mutation removeArticle($articleId: ID!) {
     removeArticle(articleId: $articleId) {
@@ -72,7 +77,7 @@ mutation removeArticle($articleId: ID!) {
     }
   }
 `;
-
+// Mutation to remove a comment
 export const UPDATE_ARTICLE = gql`
 mutation Mutation($articleId: ID!, $articleText: String!) {
   updateArticle(articleId: $articleId, articleText: $articleText) {

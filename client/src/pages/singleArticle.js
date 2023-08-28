@@ -6,6 +6,7 @@ import { QUERY_SINGLE_ARTICLE } from '../utils/queries';
 import Auth from '../utils/auth';
 import CommentForm from '../components/CommentForm';
 
+// SingleArticle is a component that displays a single article and its comments
 const SingleArticle = () => {
     const { articleId } = useParams();
 

@@ -20,7 +20,8 @@ const Profile = () => {
     
 
     const [removeArticle, ] = useMutation(REMOVE_ARTICLE);
-
+    
+    // This function handles the delete article event.
     const handleDeleteArticle = async (articleId) => {
 
         const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -36,6 +37,8 @@ const Profile = () => {
         } catch (err) {
             console.error(err);
         }
+
+        // reload the page after deleting an article
         window.location.reload("/profile");
     };
 
@@ -62,7 +65,7 @@ const Profile = () => {
                                         </Link>
                                         <img className= "img-thumbnail img-fluid m-2"src={article.image} alt="..." />
                                         <p className="card-text"> Comments: {article.commentCount}</p>
-                                        
+                                            {/*Delete button*/}
                                             <button onClick={() => handleDeleteArticle(article._id)} 
                                                     className="btn"
                                                     style= {{color: "var(--light-cyan)", backgroundColor: "var(--marian-blue)", fontSize: '1.5rem', width: "100%", margin: "5px", borderRadius: "7px"}}

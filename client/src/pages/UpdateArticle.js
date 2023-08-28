@@ -8,7 +8,7 @@ import { UPDATE_ARTICLE } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
-
+// This page is the update article page. It uses the UPDATE_ARTICLE mutation to update an article.
 const UpdateForm = () => {
     const { articleId } = useParams();
     console.log(articleId);
@@ -27,7 +27,7 @@ const UpdateForm = () => {
 
     const [updateArticle] = useMutation(UPDATE_ARTICLE);
 
-
+    // This function handles the form submit event.
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 

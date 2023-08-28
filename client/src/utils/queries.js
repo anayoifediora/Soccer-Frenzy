@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+// Query to get all articles
 export const QUERY_ARTICLES = gql`
     query allArticles {
         articles {
@@ -13,6 +14,7 @@ export const QUERY_ARTICLES = gql`
     }
 `;
 
+// Query to get a single article
 export const QUERY_SINGLE_ARTICLE = gql`
     query singleArticle($articleId: ID!) {
         article(articleId: $articleId) {
@@ -31,6 +33,7 @@ export const QUERY_SINGLE_ARTICLE = gql`
         }
     }
 `;
+// Query to get all articles by a single user
 export const QUERY_MY_ARTICLES = gql`
 query Query($email: String!) {
     user(email: $email) {
@@ -46,6 +49,7 @@ query Query($email: String!) {
     }
   }
 `;
+// Query to get a single article by ID
 export const QUERY_PROFILE_ARTICLE = gql`
     query profileArticle($articleId: ID!) {
         article(articleId: $articleId) {

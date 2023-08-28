@@ -39,6 +39,8 @@ const client = new ApolloClient({
 });
 
 
+// This function is the main function that renders the entire application. 
+
 function App() {
   return (
     <BrowserRouter>
