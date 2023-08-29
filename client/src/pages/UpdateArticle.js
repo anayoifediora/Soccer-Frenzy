@@ -82,7 +82,7 @@ const UpdateForm = () => {
                                             placeholder="Update your article here..."
                                             value={article.articleText}
                                             onChange={e => setArticle({...article, articleText: e.target.value})}
-                                            
+                                            style={{ height: "200px" }}
                                             
                                         ></textarea>
                                     </div>
