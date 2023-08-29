@@ -17,10 +17,11 @@ const UpdateForm = () => {
     const { loading, data } = useQuery(QUERY_SINGLE_ARTICLE, {
         variables: { articleId: articleId },
     });
+    console.log(data);
     
         const [article, setArticle] = useState({
         articleId: articleId,
-        articleText: data.article.articleText,
+        articleText: data?.article?.articleText || "",
     });
    
     const [userProfile, setUserProfile] = useState(null);
@@ -44,7 +45,7 @@ const UpdateForm = () => {
                 variables: { ...article },
             });
             
-            setArticle({ articleText: data.article.articleText });
+            setArticle({ articleText: data?.article?.articleText || "" });
         } catch (err) {
             console.error(err);
         }
