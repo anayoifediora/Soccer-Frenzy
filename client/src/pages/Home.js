@@ -36,7 +36,8 @@ const Home = () => {
                         <h5 className="card-title">{article.title}</h5>
                         </Link>
                         <img className= "img-thumbnail img-fluid m-2"src={article.image} alt="..." />
-                        <p className="card-text"> Comments: {article.commentCount}</p>
+                        {/* <p className="card-text"> Comments: {article.commentCount}</p> */}
+                        <i class="bi bi-chat" style={{fontSize:"2.0rem", fontWeight: "bolder"}}><span style={{marginLeft:"5px"}}>{article.commentCount}</span></i>
                         
                     </div>
                 </div>))

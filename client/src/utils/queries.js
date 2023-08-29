@@ -24,6 +24,7 @@ export const QUERY_SINGLE_ARTICLE = gql`
             createdAt
             articleAuthor
             articleText
+            commentCount
             comments {
                 _id
                 commentText
@@ -59,6 +60,7 @@ export const QUERY_PROFILE_ARTICLE = gql`
             createdAt
             articleAuthor
             articleText
+            commentCount
             comments {
                 _id
                 commentText

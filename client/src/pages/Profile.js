@@ -17,7 +17,7 @@ const Profile = () => {
         variables: { email: Auth.getProfile().data.email },
     });
     const articles = data?.user?.articles|| [];
-    
+    console.log(articles)
 
     const [removeArticle, ] = useMutation(REMOVE_ARTICLE);
     
@@ -76,6 +76,7 @@ const Profile = () => {
                                             <Link
                                                 style={{ textDecoration: 'none' }}
                                                 to={`/update/${article._id}`}
+                                                article={article}
                                                 
                                             >
                                                 <button className="btn"
@@ -88,7 +89,7 @@ const Profile = () => {
                                         
                                     </div>
                                 </div>
-                            ))
+                            )).reverse()
 
                         )
                     }

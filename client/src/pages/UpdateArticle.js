@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { QUERY_SINGLE_ARTICLE } from '../utils/queries';
+
 
 
 import { UPDATE_ARTICLE } from "../utils/mutations";
@@ -11,14 +13,16 @@ import Auth from "../utils/auth";
 // This page is the update article page. It uses the UPDATE_ARTICLE mutation to update an article.
 const UpdateForm = () => {
     const { articleId } = useParams();
-    console.log(articleId);
 
-    const [article, setArticle] = useState({
-        articleId: articleId,
-        articleText: "",
+    const { loading, data } = useQuery(QUERY_SINGLE_ARTICLE, {
+        variables: { articleId: articleId },
     });
     
-        
+        const [article, setArticle] = useState({
+        articleId: articleId,
+        articleText: data.article.articleText,
+    });
+   
     const [userProfile, setUserProfile] = useState(null);
     useEffect(() => {
         const profile = Auth.getProfile().data;
@@ -30,13 +34,17 @@ const UpdateForm = () => {
     // This function handles the form submit event.
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        if (!token) {
+            return false;
+        }
 
         try {
             const { data } = await updateArticle({
                 variables: { ...article },
             });
             
-            setArticle({ articleText: "" });
+            setArticle({ articleText: data.article.articleText });
         } catch (err) {
             console.error(err);
         }
